@@ -1,7 +1,9 @@
 # Create your views here.
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.db import connection
 def index(request):
-    mydict  = {
-        'insert_me':"contect should be display here!"
-    }
-    return render(request, 'calender/calender.html', context=mydict)
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM calender calender WHERE id = 1")
+        row = cursor.fetchone()
+    return HttpResponse(row)
