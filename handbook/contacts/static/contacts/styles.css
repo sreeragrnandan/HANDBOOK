@@ -4,7 +4,12 @@
 #team {
     background: #eee !important;
 }
-
+.otherPageHeader {
+    background-image: url(../images/banner/bg-subpageghead.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #108d6f;
