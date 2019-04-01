@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        
+
     </header>
     <!-- template -->
     <!-- Team -->
@@ -30,12 +30,12 @@
                 {% for con in contact %}
                 <!-- Team member -->
                 {% if con.Department == "Administration" %}
-               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                         <div class="mainflip">
                             <div class="frontside">
                                 <div class="card">
-                                    <div class="card-body text-center">
+                                    <div class="card-body text-center" style="height: 22rem">
                                         <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
                                        <h4 class="card-title">{{ con.Name }}</h4>
                                         <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="backside" style="min-width: 20.5rem;">
+                            <div class="backside" style="max-width: 15rem;min-width: 15rem;">
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
                                         <h4 class="card-title">{{ con.Name }}</h4>
@@ -90,7 +90,7 @@
                         {% for con in contact %}
                         <!-- Team member -->
                         {% if con.Department == "CSE" %}
-                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                 <div class="mainflip">
                                     <div class="frontside">
@@ -103,12 +103,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="backside" style="min-width: 20.5rem;">
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
                                         <div class="card">
                                             <div class="card-body text-center mt-4">
                                                 <h4 class="card-title">{{ con.Name }}</h4>
                                                 <p class="card-text">Qualification<br>{{con.Qualification}}</p>
-                                                <div class="list-inline">
+                                                <div class="list-inline" style="width: 100%">
                                                     <div class="list-inline-item">
                                                         <i class="far fa-envelope"></i>&nbsp;
                                                         <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
@@ -152,7 +152,7 @@
                         {% for con in contact %}
                         <!-- Team member -->
                         {% if con.Department == "CIVIL" %}
-                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                 <div class="mainflip">
                                     <div class="frontside">
@@ -165,7 +165,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="backside" style="min-width: 20.5rem;">
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
                                         <div class="card">
                                             <div class="card-body text-center mt-4">
                                                 <h4 class="card-title">{{ con.Name }}</h4>
@@ -213,7 +213,7 @@
                         {% for con in contact %}
                         <!-- Team member -->
                         {% if con.Department == "ECE" %}
-                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                 <div class="mainflip">
                                     <div class="frontside">
@@ -226,7 +226,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="backside" style="min-width: 20.5rem;">
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
                                         <div class="card">
                                             <div class="card-body text-center mt-4">
                                                 <h4 class="card-title">{{ con.Name }}</h4>
@@ -274,7 +274,7 @@
                                 {% for con in contact %}
                                 <!-- Team member -->
                                 {% if con.Department == "EEE" %}
-                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                         <div class="mainflip">
                                             <div class="frontside">
@@ -287,7 +287,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="backside" style="min-width: 20.5rem;">
+                                            <div class="backside" style="min-width: 15rem">
                                                 <div class="card">
                                                     <div class="card-body text-center mt-4">
                                                         <h4 class="card-title">{{ con.Name }}</h4>
@@ -335,7 +335,7 @@
                                 {% for con in contact %}
                                 <!-- Team member -->
                                 {% if con.Department == "ME" %}
-                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                         <div class="mainflip">
                                             <div class="frontside">
@@ -348,7 +348,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="backside" style="min-width: 20.5rem;">
+                                            <div class="backside" style="min-width: 15rem">
                                                 <div class="card">
                                                     <div class="card-body text-center mt-4">
                                                         <h4 class="card-title">{{ con.Name }}</h4>
@@ -394,7 +394,7 @@
                                         {% for con in contact %}
                                         <!-- Team member -->
                                         {% if con.Department == "BSH" %}
-                                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
                                             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                                                 <div class="mainflip">
                                                     <div class="frontside">
@@ -407,7 +407,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="backside" style="min-width: 20.5rem;">
+                                                    <div class="backside" style="min-width: 15rem">
                                                         <div class="card">
                                                             <div class="card-body text-center mt-4">
                                                                 <h4 class="card-title">{{ con.Name }}</h4>
