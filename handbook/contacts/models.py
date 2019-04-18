@@ -19,7 +19,6 @@ class contact(models.Model):
         ('System Administrator','System Administrator'),('Manager','Manager'),('Chairman','Chairman'),('Hostel Warden','Hostel Warden'),
         ('',''),
     )
-
     Designation = MultiSelectField(choices = Designation_CHOICES)
     Qualification = models.CharField(max_length=80)
     Email = models.EmailField()

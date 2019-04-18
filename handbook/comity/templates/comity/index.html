@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'newComity/styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'newComity/styles/fontawesome-free-5.8.1-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'newComity/styles/weloveiconfonts.css' %}">
+    <link rel="stylesheet" href="{% static 'newComity/styles.css' %}">
+    <script src="{% static 'newComity/js/src.js' %}"></script>
+</head>
+        <body>
+                <header>
+                        <div class="wrap">
+                          <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+                        <ul>
+                          <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                          <a href="{% url 'comity:index' %}"><li>Comity</li></a>
+                          <a href="#about"><li>Calender</li></a>
+                          <a href="#lab"><li>lab</li></a>
+                        </ul>
+                        </div>
+                      </header>
+              
+
+         <!-- template -->
+    <!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container otherPageHeader" bgima>
+      <br>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Members..">
+        <ul id="myUL">
+        {% if comity %}
+        {% for com in comity %}
+        <div align="center">
+                <H1>{{ com.comity_name  }}</H1><br>        
+        </div>
+        <div class="row">
+            {% for members in member %}
+            <!-- Team member -->
+            
+            {% if com.id == members.comity_id %}
+               
+           <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;z-index: initial">
+                <div>
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center" style="height: 22rem">
+                                    <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{members.jecc_code}}.jpg" alt="{{members.Name}}"></p>
+                                   <h4 class="card-title">{{members.Member_name}}</h4>
+                                    <p class="card-text"> <br> {{members.designation}} <br> {{members.department}} <br> <font color="white" > {{ members.comity }}</font> </p>
+                                    
+                                    <!-- <a href="#" class="btn btn-primary btn-sm" ><i class="fa fa-plus"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </li>
+    
+            <!-- ./Team member -->
+            {% endif %}
+            {% endfor %}
+        </div>
+            {% endfor %}
+        
+        </ul> 
+    </div>
+    {% else %}
+        <p>No access records found!</p>
+        {% endif %}
+    
+</section>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- template end -->
+        
+      </div>
+      <section id="footer">
+            <div id="logo_footer">
+              <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+            </div>
+            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+          </section>
+
+          <script> 
+              function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('myInput');
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName('li');
+              
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < li.length; i++) {
+                  a = li[i].getElementsByTagName("div")[0];
+                  txtValue = a.textContent || a.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                  } else {
+                    li[i].style.display = "none";
+                  }
+                }
+              }
+              </script>
+</body>
+</html>
