@@ -23,4 +23,6 @@ class contact(models.Model):
     Qualification = models.CharField(max_length=80)
     Email = models.EmailField()
     Phone_Number = models.CharField(max_length=20,unique=True)
-    StaffID = models.CharField(max_length = 100, default='JEC')
+    jecc_code = models.CharField(max_length = 100, default='JEC')
+    def __str__(self):  
+        return ' ' + self.Name + ' ' +self.Department+ ' '+ self.jecc_code

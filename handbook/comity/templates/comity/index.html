@@ -5,13 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'newComity/styles/style.css' %}">
-    <link rel="stylesheet" href="{% static 'newComity/styles/fontawesome-free-5.8.1-web/css/all.css' %}">
-    <link rel="stylesheet" href="{% static 'newComity/styles/weloveiconfonts.css' %}">
-    <link rel="stylesheet" href="{% static 'newComity/styles.css' %}">
-    <script src="{% static 'newComity/js/src.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'comity/styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'comity/styles/fontawesome-free-5.8.1-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'comity/styles/weloveiconfonts.css' %}">
+    <link rel="stylesheet" href="{% static 'comity/styles.css' %}">
+    <script src="{% static 'comity/js/src.js' %}"></script>
 </head>
         <body>
                 <header>
@@ -20,25 +21,32 @@
                         <ul>
                           <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
                           <a href="{% url 'comity:index' %}"><li>Comity</li></a>
-                          <a href="#about"><li>Calender</li></a>
-                          <a href="#lab"><li>lab</li></a>
+                          <a href="{% url 'calender:index' %}"><li>Calender</li></a>
+                          
                         </ul>
                         </div>
-                      </header>
+                 </header>
               
 
          <!-- template -->
     <!-- Team -->
+
+    
+    <div class="hidden">
+        
 <section id="team" class="pb-5">
     <div class="container otherPageHeader" bgima>
       <br>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Members..">
         <ul id="myUL">
         {% if comity %}
+        <button id="doPrint">Print</button>
         {% for com in comity %}
-        <div align="center">
-                <H1>{{ com.comity_name  }}</H1><br>        
-        </div>
+        <div id="printDiv">
+            <li name="MyLi"><div align="center">
+                
+                 <H1>{{ com.comity_name  }}</H1><br>    
+        </div></li> 
         <div class="row">
             {% for members in member %}
             <!-- Team member -->
@@ -73,6 +81,8 @@
         
         </ul> 
     </div>
+</div>
+    </div>
     {% else %}
         <p>No access records found!</p>
         {% endif %}
@@ -83,13 +93,14 @@
 <!-- template end -->
         
       </div>
-      <section id="footer">
+      <div class="footer">
+      <section id="footer" >
             <div id="logo_footer">
               <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
             </div>
             <p>Digital Handbook<br>Developed by TBI<br>2019</p>
           </section>
-
+        </div>
           <script> 
               function myFunction() {
                 // Declare variables
@@ -111,5 +122,23 @@
                 }
               }
               </script>
+              <script>
+              $(window).scroll(function() {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+           // ajax call get data from server and append to the div
+    }
+});
+              </script>
+              <Script>
+              document.getElementById("doPrint").addEventListener("click", function() {
+                var printContents = document.getElementById('printDiv').innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+            });
+              </Script>
+              
+              
 </body>
 </html>

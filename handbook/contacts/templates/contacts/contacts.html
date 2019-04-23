@@ -23,9 +23,9 @@
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Contacts..">
             <ul id="myUL">
             {% if contact %}
-            <div align="center">
+            <li name="MyLi"> <div align="center">
             <H1>Administration</H1><br>
-            </div>
+            </div></li>
             <div class="row">
                 {% for con in contact %}
                 <!-- Team member -->
@@ -83,9 +83,9 @@
             </div>
             <!-- CSE DEPARTMENT -->
 
-            <div align="center">
+            <li name="MyLi"> <div align="center">
                     <H1>CSE</H1><br>
-                    </div>
+                    </div></li>
                     <div class="row">
                         {% for con in contact %}
                         <!-- Team member -->
@@ -144,10 +144,10 @@
 
             <!-- CSE DEPARTMENT -->
             <!-- CIVIL DEPARTMENT-->
-
+            <li name="MyLi">
             <div align="center">
                     <H1>CIVIL</H1><br>
-                    </div>
+                    </div></li>
                     <div class="row">
                         {% for con in contact %}
                         <!-- Team member -->
@@ -206,9 +206,9 @@
 
             <!-- CIVIL DEPARTMENT -->
             <!-- ECE DEPARTMENT -->
-            <div align="center">
+            <li name="MyLi"> <div align="center">
                     <H1>ECE</H1><br>
-                    </div>
+                    </div></li>
                     <div class="row">
                         {% for con in contact %}
                         <!-- Team member -->
@@ -267,9 +267,9 @@
                     <!-- ECE DEPARTMENT -->
                     
                     <!-- EEE DEPARTMENT -->
-                    <div align="center">
+                    <li name="MyLi"><div align="center">
                             <H1>EEE</H1><br>
-                            </div>
+                            </div></li>
                             <div class="row">
                                 {% for con in contact %}
                                 <!-- Team member -->
@@ -328,9 +328,9 @@
 
                     <!-- ECE DEPARTMENT ! -->
 
-                    <div align="center">
+                    <li name="MyLi"> <div align="center">
                             <H1>ME</H1><br>
-                            </div>
+                            </div></li>
                             <div class="row">
                                 {% for con in contact %}
                                 <!-- Team member -->
@@ -387,9 +387,9 @@
                                 {% endfor %}
                             </div>
 
-                            <div align="center">
+                            <li name="MyLi"> <div align="center">
                                     <H1>BSH</H1><br>
-                                    </div>
+                                    </div></li>
                                     <div class="row">
                                         {% for con in contact %}
                                         <!-- Team member -->

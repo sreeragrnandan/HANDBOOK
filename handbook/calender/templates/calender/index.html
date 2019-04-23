@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+{% load static %}
+{% load filename %} 
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'calender/styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/styles/fontawesome-free-5.8.1-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/styles/weloveiconfonts.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/styles.css' %}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+   
+    <!-- cal styles -->
+    
+    <link rel="stylesheet" href="{% static 'calender/calstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/classy-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/font-awesome.min.css' %}">
+
+    <!-- cal styles -->
+    <script src="{% static 'calender/js/src.js' %}"></script>
+</head>
+<style>
+#myUL li{ display:none;
+}
+@media only screen and (max-width: 767px) {
+    .mtop{
+        margin-top: 20px;
+  }
+}
+</style>
+        <body>
+                <header style="margin-bottom: 5rem">
+                        <div class="wrap">
+                          <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+                        <ul>
+                          <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                          <a href="{% url 'comity:index' %}"><li>Comity</li></a>
+                          <a href="{% url 'calender:index' %}"><li>Calender</li></a>
+                          
+                        </ul>
+                        </div>
+                 </header>
+              
+
+         <!-- template -->
+   
+    <!-- preloader -->
+         <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    <!-- preloader -->
+    
+     <!-- ##### Breaking News Area Start ##### -->
+     {% if event %}
+    
+     <section class="breaking-news-area" style="padding-top: 100px;margin:0px">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-ticker d-flex flex-wrap align-items-center">
+                        <div class="title">
+                            <h6>Trending</h6>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+                            
+                            <ul>
+                                {% for events in event %}
+                                    {% if events.priority == "Trending" %}
+                                <li><a href="#" id="myBtn{{ events.id }}t" > {{ events.title }} on {{events.date}} {% if  events.date.is_past_due %} abc {% endif %} </a> </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% for events in event %}
+    {% if events.priority == "Trending"  %}
+    <!-- The Modal -->
+  <div class="modal fade" id="myModal{{ events.id }}t">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">{{ events.title }}</h4>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                {{ events.description }}
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!-- The Model -->
+
+      <!-- model script -->
+      <script>
+            $(document).ready(function(){
+              $("#myBtn{{ events.id }}t").click(function(){
+                $("#myModal{{ events.id }}t").modal();
+              });
+            });
+            </script>
+      <!-- Model script -->
+      {% endif %}
+    {% endfor %}
+
+    {% endif %}
+    <!-- ##### Breaking News Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <div >
+    <div class="hero-area " style="padding-top: 30px;margin:0px">
+        <!-- Hero Post Slides -->
+        <div class="hero-post-slides owl-carousel ">
+
+            <!-- Single Slide -->
+            <div class="single-slider">
+                <div class="container-fluid ">
+                    <div class="message">
+                    <div class="row">
+                        <!-- Single Blog Post Area -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-1" >
+                                <!-- Blog Thumbnail -->
+
+                                {% for events in event %}
+                                    {% if events.Grand_Event == "Grand Event-1" %}
+                                <div class="blog-thumbnail bg-overlay">
+                                    <a href="#">
+                                            {% if events.Photo == "11ffe044ec04e" %}
+                                        <img src="" onerror=this.src="{% static 'calender/default/jyothi-gone.jpg' %}"></a>
+                                        {% else %}
+                                        <img  src="/media/images/{{events.Photo| getfilename}}-gone.jpg" alt="ayyyg"></a>
+                                        {% endif %}
+                                </div>
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                                    <a href="#" class="post-title"  id="myBtn{{ events.id }}"> {{ events.title }} </a>
+                                </div>
+                                  <!-- The Modal -->
+                                  <div class="modal fade" id="myModal{{ events.id }}">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                            <h4 class="modal-title">{{ events.title }}</h4>
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            </div>
+                                            
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                {{ events.description }}
+                                            </div>
+                                            
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                <!-- The Model -->
+
+                                <!-- model script -->
+                                <script>
+                                        $(document).ready(function(){
+                                        $("#myBtn{{ events.id }}").click(function(){
+                                            $("#myModal{{ events.id }}").modal();
+                                        });
+                                        });
+                                        </script>
+                                <!-- Model script -->
+
+                               
+
+                                {% endif %}
+                        {% endfor %}
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-12 col-md-6 mtop" >
+                            <!-- Single Blog Post Area -->
+                            <div class="single-blog-post style-1 mb-30" >
+                                <!-- Blog Thumbnail -->
+                                {% for events in event %}
+                                    {% if events.Grand_Event == "Grand Event-2" %}
+                                <div class="blog-thumbnail bg-overlay">
+                                    
+                                    <a href="#">
+                                            {% if events.Photo == "11ffe044ec04e" %}
+                                            <img src="" onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
+                                            {% else %}
+                                        <img src="/media/images/{{events.Photo| getfilename}}-gone.jpg" onerror=this.src="{% static 'calender/img/bg-img/2.jpg' %}" >
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    
+                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                                    <a href="#" class="post-title" id="myBtn{{ events.id }}">{{ events.title }}</a>
+                                </div>
+
+
+                                 <!-- The Modal -->
+                                 <div class="modal fade" id="myModal{{ events.id }}">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                            <h4 class="modal-title">{{ events.title }}</h4>
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            </div>
+                                            
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                {{ events.description }}
+                                            </div>
+                                            
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- The Model -->
+
+                                    <!-- model script -->
+                                    <script>
+                                            $(document).ready(function(){
+                                            $("#myBtn{{ events.id }}").click(function(){
+                                                $("#myModal{{ events.id }}").modal();
+                                            });
+                                            });
+                                            </script>
+                                    <!-- Model script -->
+
+
+                                {% endif %}
+                        {% endfor %}
+                            </div>
+                            <!-- Single Blog Post Area -->
+                            <div class="single-blog-post style-1" >
+                                <!-- Blog Thumbnail -->
+                                {% for events in event %}
+                                    {% if events.Grand_Event == "Grand Event-3" %}
+                                <div class="blog-thumbnail bg-overlay">
+                                    <a href="#">
+                                            {% if events.Photo == "11ffe044ec04e" %}
+                                            <img src="" onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
+                                            {% else %}
+                                        <img src="{% static 'calender/img/bg-img/3.jpg' %}" onerror=this.src="{% static 'calender/img/bg-img/2.jpg' %}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                                    <a href="#" class="post-title" id="myBtn{{ events.id }}">{{ events.title }}</a>
+                                </div>
+
+                             <!-- The Modal -->
+                                <div class="modal fade" id="myModal{{ events.id }}">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                            <h4 class="modal-title">{{ events.title }}</h4>
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            </div>
+                                            
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                {{ events.description }}
+                                            </div>
+                                            
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- The Model -->
+
+                                    <!-- model script -->
+                                    <script>
+                                            $(document).ready(function(){
+                                            $("#myBtn{{ events.id }}").click(function(){
+                                                $("#myModal{{ events.id }}").modal();
+                                            });
+                                            });
+                                            </script>
+                                    <!-- Model script -->
+
+                                {% endif %}
+                        {% endfor %}
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Single Slide -->
+            
+
+        </div>
+    </div>
+</div>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Intro News Area Start ##### -->
+   
+    <!-- ##### Intro News Area End ##### -->
+
+    <!-- ##### Video Area Start ##### -->
+    
+    <!-- ##### Video Area End ##### -->
+
+    <!-- ##### Top News Area Start ##### -->
+    
+        
+    <div class="top-news-area section-padding-100" style="padding-bottom: 200px">
+        <div class="container">
+            <div class="row">
+                <!-- Single News Area -->
+                <ul id="myUL">
+                    
+                {% for events in event %}
+                {% if events.Grand_Event == None  %}
+                <li name="MyLi">
+                <div class="col-12 col-sm-6 col-lg-4" style="float: left;" >
+                    <div class="single-blog-post style-2 mb-5">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <a href="#">
+                                    {% if events.Photo == "11ffe044ec04e" %}
+                                    <img src="" onerror=this.src="{% static 'calender/default/jyothi-normal.jpg' %}">
+                                    {% else %}
+                                <img src="/media/images/{{events.Photo| getfilename}}-normal.jpg" alt="">
+                                {% endif %}
+                            </a>
+                        </div>
+
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                            <a href="#" class="post-title"  id="myBtn{{ events.id }}"> {{ events.title }} </a>
+                            <a href="#" class="post-author" >{{ events.By }}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Modal -->
+  <div class="modal fade" id="myModal{{ events.id }}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">{{ events.title }}</h4>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                {{ events.description }}
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!-- The Model -->
+
+      <!-- model script -->
+      <script>
+            $(document).ready(function(){
+              $("#myBtn{{ events.id }}").click(function(){
+                $("#myModal{{ events.id }}").modal();
+              });
+            });
+            </script></li>
+      <!-- Model script -->
+
+                {% endif %}
+                {% endfor %}
+            </ul>
+                <!-- Single News Area -->
+               
+                
+
+                <div class="col-12">
+                    <div class="load-more-button text-center">
+                        <a href="#" id="loadMore" class="btn newsbox-btn">Load More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- template end -->
+    
+      </div>
+      <div class="footer">
+      <section id="footer">
+            <div id="logo_footer">
+              <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+            </div>
+            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+          </section>
+        </div>
+        <script>
+            window.setInterval(function() {
+            $('.message').fadeOut(0).fadeIn(3000); 
+            },6000);
+        </script>
+              <script>
+              $(window).scroll(function() {
+                    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                        // ajax call get data from server and append to the div
+                    }
+                });
+              </script>
+              <Script>
+              $(document).ready(function () {
+                    size_li = $("#myUL li").size();
+                    x=6;
+                    $('#myUL li:lt('+x+')').show();
+                    $('#loadMore').click(function () {
+                        x= (x+6 <= size_li) ? x+6 : size_li;
+                        $('#myUL li:lt('+x+')').show();
+                    });
+                    $('#showLess').click(function () {
+                        x=(x-6<0) ? 3 : x-6;
+                        $('#myUL li').not(':lt('+x+')').hide();
+                    });
+                });
+              </Script>
+
+               <!-- jQuery-2.2.4 js -->
+            
+    <script src="{% static 'calender/js/jquery/jquery-2.2.4.min.js' %} "></script>
+    <!-- Popper js -->
+    <script src="{% static 'calender/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'calender/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'calender/js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'calender/js/active.js' %}"></script>
+              
+              
+</body>
+</html>
