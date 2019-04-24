@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('calender.url')),
     path('admin/', admin.site.urls),
     path('index/', include('index.url')),
     path('contacts/', include('contacts.url')),
