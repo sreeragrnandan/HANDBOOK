@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,131 +14,162 @@
     <link rel="stylesheet" href="{% static 'comity/styles.css' %}">
     <script src="{% static 'comity/js/src.js' %}"></script>
 </head>
-        <body>
-                <header>
-                        <div class="wrap">
-                          <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
-                        <ul>
-                          <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
-                          <a href="{% url 'comity:index' %}"><li>Comity</li></a>
-                          <a href="{% url 'calender:index' %}"><li>Calender</li></a>
-                          
-                        </ul>
-                        </div>
-                 </header>
-              
 
-         <!-- template -->
+<body>
+    <header>
+        <div class="wrap">
+            <a href="#hello">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                </div>
+            </a>
+            <ul>
+                <a href="{% url 'contacts:index' %}">
+                    <li>Contacts</li>
+                </a>
+                <a href="{% url 'comity:index' %}">
+                    <li>Comity</li>
+                </a>
+                <a href="{% url 'calender:index' %}">
+                    <li>Calender</li>
+                </a>
+
+            </ul>
+        </div>
+    </header>
+
+
+    <!-- template -->
     <!-- Team -->
 
-    
+
     <div class="hidden">
-        
-<section id="team" class="pb-5">
-    <div class="container otherPageHeader" bgima>
-      <br>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Members..">
-        <ul id="myUL">
-        {% if comity %}
-        <button id="doPrint">Print</button>
-        {% for com in comity %}
-        <div id="printDiv">
-            <li name="MyLi"><div align="center">
-                
-                 <H1>{{ com.comity_name  }}</H1><br>    
-        </div></li> 
-        <div class="row">
-            {% for members in member %}
-            <!-- Team member -->
-            
-            {% if com.id == members.comity_id %}
-               
-           <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;z-index: initial">
-                <div>
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center" style="height: 22rem">
-                                    <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{members.jecc_code}}.jpg" alt="{{members.Name}}"></p>
-                                   <h4 class="card-title">{{members.Member_name}}</h4>
-                                    <p class="card-text"> <br> {{members.designation}} <br> {{members.department}} <br> <font color="white" > {{ members.comity }}</font> </p>
-                                    
-                                    <!-- <a href="#" class="btn btn-primary btn-sm" ><i class="fa fa-plus"></i></a> -->
-                                </div>
+
+        <section id="team" class="pb-5">
+            <div class="container otherPageHeader" bgima>
+                <br>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Members..">
+                <ul id="myUL">
+                    {% if comity %}
+                    <button id="doPrint">Print</button>
+                    {% for com in comity %}
+                    <div id="printDiv">
+                        <li name="MyLi">
+                            <div align="center">
+
+                                <H1>{{ com.comity_name }}</H1>
+                                <br>
                             </div>
+                        </li>
+                        <div class="row">
+                            {% for members in member %}
+                            <!-- Team member -->
+
+                            {% if com.id == members.comity_id %}
+
+                            <li name="MyLi">
+                                <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;z-index: initial">
+                                    <div>
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center" style="height: 22rem">
+                                                        <p>
+                                                            <img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{members.jecc_code}}.jpg"
+                                                                alt="{{members.Name}}">
+                                                        </p>
+                                                        <h4 class="card-title">{{members.Member_name}}</h4>
+                                                        <p class="card-text">
+                                                            <br> {{members.designation}}
+                                                            <br> {{members.department}}
+                                                            <br>
+                                                            <font color="white"> {{ members.comity }}</font>
+                                                        </p>
+
+                                                        <!-- <a href="#" class="btn btn-primary btn-sm" ><i class="fa fa-plus"></i></a> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- ./Team member -->
+                            {% endif %} {% endfor %}
                         </div>
-                        
+                        {% endfor %}
                     </div>
+                </ul>
+
                 </div>
             </div>
-        </li>
     
-            <!-- ./Team member -->
-            {% endif %}
-            {% endfor %}
-        </div>
-            {% endfor %}
-        
-        </ul> 
-    </div>
-</div>
-    </div>
     {% else %}
-        <p>No access records found!</p>
-        {% endif %}
-    
-</section>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- template end -->
-        
-      </div>
-      <div class="footer">
-      <section id="footer" >
+    <p>No access records found!</p>
+    {% endif %}
+
+    </section>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- template end -->
+
+    </div>
+    <div class="footer">
+        <section id="footer">
             <div id="logo_footer">
-              <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+                <a href="#hello">
+                    <div class="logo">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                </a>
             </div>
-            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
-          </section>
-        </div>
-          <script> 
-              function myFunction() {
-                // Declare variables
-                var input, filter, ul, li, a, i, txtValue;
-                input = document.getElementById('myInput');
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName('li');
-              
-                // Loop through all list items, and hide those who don't match the search query
-                for (i = 0; i < li.length; i++) {
-                  a = li[i].getElementsByTagName("div")[0];
-                  txtValue = a.textContent || a.innerText;
-                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            <p>Digital Handbook
+                <br>Developed by TBI
+                <br>2019</p>
+        </section>
+    </div>
+    <script> 
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("div")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     li[i].style.display = "";
-                  } else {
+                } else {
                     li[i].style.display = "none";
-                  }
                 }
-              }
-              </script>
-              <script>
-              $(window).scroll(function() {
-    if($(window).scrollTop() == $(document).height() - $(window).height()) {
-           // ajax call get data from server and append to the div
-    }
-});
-              </script>
-              <Script>
-              document.getElementById("doPrint").addEventListener("click", function() {
-                var printContents = document.getElementById('printDiv').innerHTML;
-                var originalContents = document.body.innerHTML;
-                document.body.innerHTML = printContents;
-                window.print();
-                document.body.innerHTML = originalContents;
-            });
-              </Script>
-              
-              
+            }
+        }
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                // ajax call get data from server and append to the div
+            }
+        });
+    </script>
+    <Script>
+        document.getElementById("doPrint").addEventListener("click", function () {
+            var printContents = document.getElementById('printDiv').innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
+        });
+    </Script>
+
+
 </body>
+
 </html>

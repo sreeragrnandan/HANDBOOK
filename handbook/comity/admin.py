@@ -10,4 +10,5 @@ class MemberAdmin(admin.ModelAdmin):
         queryset = super(MemberAdmin ,self).get_queryset(request)
         queryset = queryset.order_by('comity_id')
         return queryset
+    search_fields = ('comity__comity_name', 'Member_name', 'department','designation','jecc_code', )
 admin.site.register(Member , MemberAdmin)

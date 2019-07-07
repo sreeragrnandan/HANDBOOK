@@ -153,6 +153,8 @@
 
                                 {% for events in event %}
                                     {% if events.Grand_Event == "Grand Event-1" %}
+                                    {% with GE1_id=events.id %}
+                                    {% endwith %}
                                 <div class="blog-thumbnail bg-overlay">
                                     <a href="#">
                                             {% if events.Photo == "11ffe044ec04e" %}
@@ -199,13 +201,13 @@
                                             $("#myModal{{ events.id }}").modal();
                                         });
                                         });
-                                        </script>
+                                </script>
                                 <!-- Model script -->
 
                                
 
                                 {% endif %}
-                        {% endfor %}
+                            {% endfor %}
                             </div>
                         </div>
                         
@@ -267,7 +269,7 @@
                                                 $("#myModal{{ events.id }}").modal();
                                             });
                                             });
-                                            </script>
+                                    </script>
                                     <!-- Model script -->
 
 

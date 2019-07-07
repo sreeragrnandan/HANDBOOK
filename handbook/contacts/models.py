@@ -1,13 +1,19 @@
 from django.db import models
 from multiselectfield import MultiSelectField
+import pymysql
 
 # Create your models here.
+
+
 class contact(models.Model):
+    
     DEPARTMENT_CHOICES = (
-        ('CSE','CSE'),('ECE','ECE'),('Administration','Administration'),('CIVIL','CIVIL')
-        ,('EEE','EEE'),('ME','ME'),('BSH','BSH'),('Office','Office'),('Library','Library'),
-        ('COMPUTER CENTER','COMPUTER CENTER'),('HOSTEL','HOSTEL'),
+    ('CSE','CSE'),('ECE','ECE'),('Administration','Administration'),('CIVIL','CIVIL')
+    ,('EEE','EEE'),('ME','ME'),('BSH','BSH'),('Office','Office'),('Library','Library'),
+    ('COMPUTER CENTER','COMPUTER CENTER'),('HOSTEL','HOSTEL'),
     )
+
+    
     Department = models.CharField(max_length = 80,choices = DEPARTMENT_CHOICES , default='Select department' )
     Name = models.CharField(max_length=80)
     Designation_CHOICES = (

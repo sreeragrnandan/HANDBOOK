@@ -38,16 +38,18 @@ INSTALLED_APPS = [
     'calender',
     'contacts',
     'comity',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # "pinax.calendars",
     'multiselectfield',
     'django_thumbs',
 ]
-
+# SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,7 +61,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'handbook.urls'
-
+# TEMPLATE_CONTEXT_PROCESSORS = (
+    
+#     'django.template.context_processors.request',
+# )
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -129,7 +134,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
