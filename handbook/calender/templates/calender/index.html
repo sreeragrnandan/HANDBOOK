@@ -44,7 +44,7 @@
                           <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
                         <ul>
                           <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
-                          <a href="{% url 'comity:index' %}"><li>Comity</li></a>
+                          <a href="{% url 'comity:index' %}"><li>Committees</li></a>
                           <a href="{% url 'calender:index' %}"><li>Calender</li></a>
                           
                         </ul>
@@ -82,7 +82,7 @@
                             <ul>
                                 {% for events in event %}
                                     {% if events.priority == "Trending" %}
-                                <li><a href="#" id="myBtn{{ events.id }}t" > {{ events.title }} on {{events.date}} {% if  events.date.is_past_due %} abc {% endif %} </a> </li>
+                                <li><a href="#" id="myBtn{{ events.id }}t" onclick="get_modal('t','{{ events.id }}')"> {{ events.title }} on {{events.date}} {% if  events.date.is_past_due %} abc {% endif %} </a> </li>
                                 {% endif %}
                             {% endfor %}
                         </ul>  
@@ -121,13 +121,7 @@
       <!-- The Model -->
 
       <!-- model script -->
-      <script>
-            $(document).ready(function(){
-              $("#myBtn{{ events.id }}t").click(function(){
-                $("#myModal{{ events.id }}t").modal();
-              });
-            });
-            </script>
+     
       <!-- Model script -->
       {% endif %}
     {% endfor %}
@@ -151,63 +145,30 @@
                             <div class="single-blog-post style-1" >
                                 <!-- Blog Thumbnail -->
 
-                                {% for events in event %}
-                                    {% if events.Grand_Event == "Grand Event-1" %}
-                                    {% with GE1_id=events.id %}
-                                    {% endwith %}
+                                    
                                 <div class="blog-thumbnail bg-overlay">
                                     <a href="#">
-                                            {% if events.Photo == "11ffe044ec04e" %}
+                                
                                         <img src="" onerror=this.src="{% static 'calender/default/jyothi-gone.jpg' %}"></a>
-                                        {% else %}
-                                        <img  src="/media/images/{{events.Photo| getfilename}}-gone.jpg" alt="ayyyg"></a>
-                                        {% endif %}
+                                        
                                 </div>
                                 <!-- Blog Content -->
                                 <div class="blog-content">
                                     <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
-                                    <a href="#" class="post-title"  id="myBtn{{ events.id }}"> {{ events.title }} </a>
+                                    <a href="#" class="post-title"  id="myBtn{{ events.id }}ge" onclick="get_modal('ge','{{ events.id }}')"> Academic Calender </a>
                                 </div>
+                                
                                   <!-- The Modal -->
-                                  <div class="modal fade" id="myModal{{ events.id }}">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                            <h4 class="modal-title">{{ events.title }}</h4>
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                            </div>
-                                            
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                {{ events.description }}
-                                            </div>
-                                            
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-                                            
-                                        </div>
-                                        </div>
-                                    </div>
+                                  
                                 <!-- The Model -->
 
                                 <!-- model script -->
-                                <script>
-                                        $(document).ready(function(){
-                                        $("#myBtn{{ events.id }}").click(function(){
-                                            $("#myModal{{ events.id }}").modal();
-                                        });
-                                        });
-                                </script>
+                                
                                 <!-- Model script -->
 
                                
 
-                                {% endif %}
-                            {% endfor %}
+                              
                             </div>
                         </div>
                         
@@ -216,125 +177,56 @@
                             <!-- Single Blog Post Area -->
                             <div class="single-blog-post style-1 mb-30" >
                                 <!-- Blog Thumbnail -->
-                                {% for events in event %}
-                                    {% if events.Grand_Event == "Grand Event-2" %}
+                              
                                 <div class="blog-thumbnail bg-overlay">
                                     
                                     <a href="#">
-                                            {% if events.Photo == "11ffe044ec04e" %}
                                             <img src="" onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
-                                            {% else %}
-                                        <img src="/media/images/{{events.Photo| getfilename}}-gone.jpg" onerror=this.src="{% static 'calender/img/bg-img/2.jpg' %}" >
-                                        {% endif %}
+                            
                                     </a>
                                 </div>
                                 <!-- Blog Content -->
                                 <div class="blog-content">
                                     
-                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
-                                    <a href="#" class="post-title" id="myBtn{{ events.id }}">{{ events.title }}</a>
+                                   
+                                    <a href="#" class="post-title" id="myBtn{{ events.id }}ge2" onclick="get_modal('ge2','{{ events.id }}')">Non-Academic Calender</a>
                                 </div>
 
 
-                                 <!-- The Modal -->
-                                 <div class="modal fade" id="myModal{{ events.id }}">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                            <h4 class="modal-title">{{ events.title }}</h4>
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                            </div>
-                                            
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                {{ events.description }}
-                                            </div>
-                                            
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-                                            
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <!-- The Model -->
+                                 
 
                                     <!-- model script -->
-                                    <script>
+                                    <!-- <script>
                                             $(document).ready(function(){
-                                            $("#myBtn{{ events.id }}").click(function(){
-                                                $("#myModal{{ events.id }}").modal();
+                                            $("#myBtn{{ events.id }}ge2").click(function(){
+                                                $("#myModal{{ events.id }}ge2").modal();
                                             });
                                             });
-                                    </script>
+                                    </script> -->
                                     <!-- Model script -->
 
 
-                                {% endif %}
-                        {% endfor %}
+                                
                             </div>
                             <!-- Single Blog Post Area -->
                             <div class="single-blog-post style-1" >
                                 <!-- Blog Thumbnail -->
-                                {% for events in event %}
-                                    {% if events.Grand_Event == "Grand Event-3" %}
+                                
                                 <div class="blog-thumbnail bg-overlay">
                                     <a href="#">
-                                            {% if events.Photo == "11ffe044ec04e" %}
+                                            
                                             <img src="" onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
-                                            {% else %}
-                                        <img src="{% static 'calender/img/bg-img/3.jpg' %}" onerror=this.src="{% static 'calender/img/bg-img/2.jpg' %}">
-                                        {% endif %}
+                                       
                                     </a>
                                 </div>
 
                                 <!-- Blog Content -->
                                 <div class="blog-content">
-                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
-                                    <a href="#" class="post-title" id="myBtn{{ events.id }}">{{ events.title }}</a>
+                                    
+                                    <a href="#" class="post-title" id="myBtnCege3" onclick="get_modal('ge3','Ce')">Class Event Calender</a>
                                 </div>
 
-                             <!-- The Modal -->
-                                <div class="modal fade" id="myModal{{ events.id }}">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                            <h4 class="modal-title">{{ events.title }}</h4>
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                            </div>
-                                            
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                {{ events.description }}
-                                            </div>
-                                            
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-                                            
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <!-- The Model -->
-
-                                    <!-- model script -->
-                                    <script>
-                                            $(document).ready(function(){
-                                            $("#myBtn{{ events.id }}").click(function(){
-                                                $("#myModal{{ events.id }}").modal();
-                                            });
-                                            });
-                                            </script>
-                                    <!-- Model script -->
-
-                                {% endif %}
-                        {% endfor %}
+                             
                                 
                             </div>
                         </div>
@@ -368,6 +260,8 @@
             <div class="row">
                 <!-- Single News Area -->
                 <ul id="myUL">
+                        <br>
+                        <input type="text" id="myInput2" onkeyup="myFunction(this)" placeholder="Search for Contacts..">
                     
                 {% for events in event %}
                 {% if events.Grand_Event == None  %}
@@ -388,14 +282,15 @@
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
-                            <a href="#" class="post-title"  id="myBtn{{ events.id }}"> {{ events.title }} </a>
+                            <a href="#" class="post-title"  id="myBtn{{ events.id }}n" onclick="get_modal('n','{{ events.id }}')"> {{ events.title }} </a>
                             <a href="#" class="post-author" >{{ events.By }}</a>
                         </div>
                     </div>
                 </div>
 
+               
                 <!-- The Modal -->
-  <div class="modal fade" id="myModal{{ events.id }}">
+  <div class="modal fade" id="myModal{{ events.id }}n">
         <div class="modal-dialog">
           <div class="modal-content">
           
@@ -420,14 +315,34 @@
       </div>
       <!-- The Model -->
 
+       <!-- The Modal -->
+       <div class="modal fade" id="myModalCege3">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Class Event Calender</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{ events.description }}
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!-- The Model -->
       <!-- model script -->
-      <script>
-            $(document).ready(function(){
-              $("#myBtn{{ events.id }}").click(function(){
-                $("#myModal{{ events.id }}").modal();
-              });
-            });
-            </script></li>
+      
+            </li>
       <!-- Model script -->
 
                 {% endif %}
@@ -437,7 +352,7 @@
                
                 
 
-                <div class="col-12">
+                <div class="col-12" id="load">
                     <div class="load-more-button text-center">
                         <a href="#" id="loadMore" class="btn newsbox-btn">Load More</a>
                     </div>
@@ -449,6 +364,55 @@
 
 
 </div>
+<div class="modal fade" id="myModal{{ getId }}ge">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">ge</h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                {{ eventDesc }}
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    <!-- The Modal Non-Academic Calender -->
+    <div class="modal fade" id="myModal{{ events.id }}ge2">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Non-Academic Calender</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{ events.description }}
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!-- The Model -->
+    
 <!-- template end -->
     
       </div>
@@ -473,6 +437,9 @@
                 });
               </script>
               <Script>
+            function get_modal(modal_name,id){
+                $("#myModal"+id+modal_name).modal();
+            }
               $(document).ready(function () {
                     size_li = $("#myUL li").size();
                     x=6;
@@ -489,6 +456,32 @@
               </Script>
 
                <!-- jQuery-2.2.4 js -->
+               <script>
+                function myFunction(obj) {
+                  // Declare variables
+                  if(obj.id == "myInput2"){
+                    document.getElementById("load").style.display = "none";
+                  document.getElementById("myUL").id = "myUL2";
+                  document.getElementById("myInput2").id = "myInput";
+                  }
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = document.getElementById('myInput');
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("myUL2");
+                  li = ul.getElementsByTagName('li');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("div")[1];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                }
+                </script>
             
     <script src="{% static 'calender/js/jquery/jquery-2.2.4.min.js' %} "></script>
     <!-- Popper js -->

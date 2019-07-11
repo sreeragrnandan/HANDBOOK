@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'calender',
     'contacts',
     'comity',
-
+    # 'events',
+    # 'fullcalendar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

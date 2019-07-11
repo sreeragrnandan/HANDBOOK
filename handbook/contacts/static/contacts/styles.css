@@ -11,7 +11,30 @@
     background-repeat: no-repeat;
     height: auto;
 }
+@media only screen and (max-width: 480px){
+    .lidiv{
+        width: 15rem;
+        min-width: 15rem;
+        z-index: initial;
+        margin: auto;
+        padding: 0;
+    }
+    .searchLi{
+        width: 100%;
+    /* margin: auto 9%; */
+    }
 
+
+}
+/* .lidiv{
+    float: left;
+    margin: 10px;
+    width: 15rem;
+    min-width: 15rem;
+    z-index: initial;
+    margin: auto;
+    padding: 0;
+} */
 .footer {
     position: absolute;
     right: 0;

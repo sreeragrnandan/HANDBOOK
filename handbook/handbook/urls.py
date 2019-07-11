@@ -26,7 +26,8 @@ urlpatterns = [
     path('index/', include('index.url')),
     path('contacts/', include('contacts.url')),
     path('calender/', include('calender.url')),
-    path('comity/', include('comity.url'))
+    path('comity/', include('comity.url')),
+    # path('events/',include('events.url'))
     # url(r'^calendarium/', include('calendarium.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 admin.site.site_header = 'Handbook administration'
