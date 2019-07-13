@@ -16,12 +16,10 @@
 </head>
 
 <body>
-    <header>
+    <header style="margin-bottom: 5rem">
         <div class="wrap">
             <a href="#hello">
-                <div class="logo">
-                    <i class="fas fa-book-open"></i>
-                </div>
+                <div class="logo"><i class="fas fa-book-open"></i></div>
             </a>
             <ul>
                 <a href="{% url 'contacts:index' %}">
@@ -33,10 +31,12 @@
                 <a href="{% url 'calender:index' %}">
                     <li>Calender</li>
                 </a>
+                <a href="{% url 'administration:index' %}"><li>Administration</li></a>
 
             </ul>
         </div>
     </header>
+
 
 
     <!-- template -->
@@ -61,7 +61,7 @@
                                 <br>
                             </div>
                         </li>
-                        <div class="row">
+                        <div class="row comp">
                             {% for members in member %}
                             <!-- Team member -->
 
@@ -99,6 +99,29 @@
                             <!-- ./Team member -->
                             {% endif %} {% endfor %}
                         </div>
+                        {% for members in member %}
+                                <!-- Team member -->
+    
+                                {% if com.id == members.comity_id %}
+                                <li name="MyLi">
+                        <div class="row mob">
+                                
+                                <div class="events-container">
+                                        <!-- <span class="events__title">Upcoming events this month</span> -->
+                                        <ul class="events__list">
+                                          <li class="events__item">
+                                            <div class="events__item--left">
+                                              <span class="events__name">{{members.Member_name}}</span>
+                                              <span class="events__date">{{members.designation}} of {{ members.comity }}</span>
+                                            </div>
+                                            <span class="events__tag">{{members.department}}</span>
+                                          </li>
+                                          
+                                        </ul>
+                                      </div>
+                        </div>
+                        </li>
+                        {% endif %} {% endfor %}
                         {% endfor %}
                     </div>
                 </ul>
@@ -165,7 +188,8 @@
             document.body.innerHTML = printContents;
             window.print();
             document.body.innerHTML = originalContents;
-            location.reload();
+            setTimeout(function() { location.reload(); }, 500);
+            
         });
     </Script>
 

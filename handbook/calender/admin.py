@@ -10,9 +10,6 @@ class EventInfoAdmin(admin.ModelAdmin):
         queryset = super(EventInfoAdmin ,self).get_queryset(request)
         queryset = queryset.order_by('-id')
         return queryset
+    list_display = ['title', 'date', 'By','Event_type']
     search_fields = ('title', 'Grand_Event', 'date','priority', )
 admin.site.register(EventInfo , EventInfoAdmin)
-
-class EventAdmin(admin.ModelAdmin):
-    list_display = ['day', 'start_time', 'end_time', 'notes']
-admin.site.register(Event , EventAdmin)

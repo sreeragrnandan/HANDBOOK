@@ -30,7 +30,7 @@ class EventInfo(models.Model):
        ('Normal','Normal'),('Trending','Trending'),
     )
     breaking_CHOICES = (
-        ('Grand Event-1','Grand Event-1'),('Grand Event-2','Grand Event-2'),('Grand Event-3','Grand Event-3'),
+        ('Academic','Academic'),('Non-Academic','Non-Academic'),('Class-Event','Class-Event'),
     )
 
     title = models.CharField(max_length=100,help_text=u"Enter title...")
@@ -41,18 +41,9 @@ class EventInfo(models.Model):
 
     Photo = ImageThumbsField(upload_to='images', sizes=SIZES,blank=True,default="11ffe044ec04e",help_text=u"Upload *.jpg or *.jpeg images")
 
-    Grand_Event = models.CharField(max_length=80 ,choices = breaking_CHOICES ,unique=True, blank=True, null=True, default=None,
-    help_text=u"Only 3 breaking news is allowd if you want to add disable others")
+    Event_type = models.CharField(max_length=80 ,choices = breaking_CHOICES ,blank=True, null=True, default=None,
+    help_text=u"Please mention type of event ")
     
     def filename(self):
         return os.path.basename(self.Photo.name)
-
-
-    
-    def __str__(self):
-        news = " "
-        dater = self.date.strftime("%d/%B/%Y")
-        if self.Grand_Event is not None:
-            news = self.Grand_Event
-        return 'Event Info: ' + self.title + ' ' +self.priority + ' ' +news+' '+dater+' | By '+self.By
 

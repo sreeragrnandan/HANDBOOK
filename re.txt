@@ -1,0 +1,5 @@
+pymsql
+django-thumbs-v2
+pip install django-multiselectfield
+~/HANDBOOK/handbook
+~/HANDBOOK/handbook/handbook

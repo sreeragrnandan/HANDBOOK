@@ -8,6 +8,7 @@ register = template.Library()
 @register.filter
 def getfilename(value):
     return os.path.basename(value.file.name[:-4])
+    
 
 @property
 def is_past_due(self):

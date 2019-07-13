@@ -36,17 +36,17 @@ INSTALLED_APPS = [
     'table',
     'index',
     'calender',
+    'administration',
     'contacts',
     'comity',
-    # 'events',
-    # 'fullcalendar',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # "pinax.calendars",
+   
     'multiselectfield',
     'django_thumbs',
 ]
