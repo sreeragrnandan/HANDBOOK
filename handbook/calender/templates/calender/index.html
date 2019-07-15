@@ -11,8 +11,7 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'calender/styles/style.css' %}">
-    <link rel="stylesheet" href="{% static 'calender/styles/fontawesome-free-5.8.1-web/css/all.css' %}">
-    <link rel="stylesheet" href="{% static 'calender/styles/weloveiconfonts.css' %}">
+    <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
     <link rel="stylesheet" href="{% static 'calender/styles.css' %}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -50,11 +49,12 @@
             </a>
             <ul>
                     <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                    <a href="{% url 'calender:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Calender</li></a>
+                    <a href="{% url 'syllabus:index' %}"><li>Syllabus</li></a>
                     <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                    <a href="{% url 'calender:index' %}"><li>Calender</li></a>
-                    <a href="{% url 'administration:index' %}"><li>Administration</li></a>
                     <a href="{% url 'quickReference:index' %}"><li>QR</li></a>
-            </ul>
+                    <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
+                  </ul>
         </div>
     </header>
 

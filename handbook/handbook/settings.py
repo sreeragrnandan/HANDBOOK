@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'contacts',
     'comity',
     'quickReference',
+    'syllabus',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
