@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Handbook</title>
     <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'syllabus/styles/style.css' %}">
@@ -26,15 +29,33 @@
       </style>    
 </head>
         <body>
-                <header>
-                        <div class="wrap">
-                          <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
-                        <ul>
+          <div id="mySidenav" class="sidenav">
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+            
+                <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+                <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+              
+          </div>
+<header style="margin-bottom: 5rem">
+    <div class="wrap" style="max-width: 850px;">
+        <a href="#hello">
+            <div class="logo"><i class="fas fa-book-open"></i></div>
+        </a>
+        <ul class="sidedisp">
+        <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+        <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+
+        </ul>
+        <ul class="compdisp">
                           <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
                           <a  href="{% url 'calender:index' %}"><li>Calender</li></a>
                           <a href="{% url 'syllabus:index' %}"><li  style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Syllabus</li></a>
                           <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                          <a href="{% url 'quickReference:index' %}"><li>QR</li></a>
+                          <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
                           <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
                         </ul>
                         </div>
@@ -43,8 +64,8 @@
 
          <!-- template -->
     <!-- Team -->
-    <div>abcd</div>
-    <div style="padding:0px;overflow:hidden">
+  
+    <div style="padding:0px;overflow:hidden" onclick="closeNav()">
       <iframe src="https://www.jecc.ac.in/syllabus" frameborder="0" 
       style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:100%;position:absolute;left:0px;right:0px;bottom:0px;" 
       id="frame" height="90%" width="100%"></iframe>

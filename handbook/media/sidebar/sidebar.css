@@ -21,7 +21,9 @@
   transition: 0.3s;
 }
 
-
+.activesm{
+  font-weight: 400;
+}
 
 .sidenav .closebtn {
   position: absolute;
@@ -59,7 +61,7 @@
       display: none;
     }
     .comp{
-      display: none;
+      display: none !important;
     }
     .mob{
       display: block;

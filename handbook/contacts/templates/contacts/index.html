@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Handbook</title>
     <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'contacts/styles/style.css' %}">
@@ -15,15 +18,33 @@
     <script src="{% static 'contacts/js/src.js' %}"></script>
 </head>
         <body>
-                <header>
-                        <div class="wrap">
-                          <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
-                          <ul>
+            <div id="mySidenav" class="sidenav">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                
+                    <a href="{% url 'contacts:index' %}" class="activesm"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                    <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                    <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+                    <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                    <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                    <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+                  
+              </div>
+    <header style="margin-bottom: 5rem">
+        <div class="wrap" style="max-width: 800px;">
+            <a href="#hello">
+                <div class="logo"><i class="fas fa-book-open"></i></div>
+            </a>
+            <ul class="sidedisp">
+            <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+    
+            </ul>
+            <ul class="compdisp">
                                 <a href="{% url 'contacts:index' %}"><li   style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Contacts</li></a>
                                 <a href="{% url 'calender:index' %}"><li>Calender</li></a>
                                 <a href="{% url 'syllabus:index' %}"><li>Syllabus</li></a>
                                 <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                                <a href="{% url 'quickReference:index' %}"><li>QR</li></a>
+                                <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
                                 <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
                               </ul>
                         </div>
@@ -32,7 +53,7 @@
 
          <!-- template -->
     <!-- Team -->
-<section id="team" class="pb-5">
+<section id="team" onclick="closeNav()" class="pb-5">
     <div class="container otherPageHeader" bgima>
       <br>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Contacts..">
@@ -55,8 +76,8 @@
                             <div class="card">
                                 <div class="card-body text-center" style="height: 22rem;">
                                     <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.jecc_code}}.jpg" alt="{{CON.Name}}"></p>
-                                   <h4 class="card-title">{{ con.Name }}</h4>
-                                    <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                   <h4 class="card-title" style="min-height: 55px">{{ con.Name }}</h4>
+                                    <p class="card-text" style="min-height: 76px;">{{con.Designation}} <br> {{con.Department}} </p>
                                     <div class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></div>
                                 </div>
                             </div>

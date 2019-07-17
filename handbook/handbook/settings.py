@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'administration',
     'contacts',
     'comity',
+    'home',
     'quickReference',
     'syllabus',
     'django.contrib.admin',

@@ -21,9 +21,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('calender.url')),
+     path('',include('home.url')),
+    path('calender/', include('calender.url')),
     path('admin/', admin.site.urls),
     path('administration/',include('administration.url')),
+   
     path('index/', include('index.url')),
     path('contacts/', include('contacts.url')),
     path('calender/', include('calender.url')),
