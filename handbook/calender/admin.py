@@ -8,7 +8,7 @@ from .models import EventInfo, Event
 class EventInfoAdmin(admin.ModelAdmin):
     def get_queryset(self,request):
         queryset = super(EventInfoAdmin ,self).get_queryset(request)
-        queryset = queryset.order_by('-id')
+        queryset = queryset.order_by('date')
         return queryset
     list_display = ['title', 'date', 'By','Event_type']
     search_fields = ('title', 'Grand_Event', 'date','priority', )

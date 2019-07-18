@@ -25,7 +25,7 @@ urlpatterns = [
     path('calender/', include('calender.url')),
     path('admin/', admin.site.urls),
     path('administration/',include('administration.url')),
-   
+    path('TimeTable/',include('TimeTable.url')),   
     path('index/', include('index.url')),
     path('contacts/', include('contacts.url')),
     path('calender/', include('calender.url')),

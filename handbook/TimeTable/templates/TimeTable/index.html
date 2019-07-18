@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TIME TABLE</title>
+
+  <!-- Custom fonts for this template-->
+  <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'TimeTable/sb-admin-2.min.css' %}" rel="stylesheet">
+
+</head>
+<style>
+.sidebar-social {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-social ul {
+    margin: 0;
+}
+
+.sidebar-social li {
+    margin: 10px;
+    margin-top:0;
+    margin-bottom: 0;
+	  text-align: center;
+    background-color: #fff;
+    /* border: 1px solid #eee; */
+    display: inline-block;
+    padding:0;
+}
+
+.sidebar-social i {
+  display: block;
+  margin: 0 auto 10px auto;
+	width: 32px;
+    height: 32px;
+    margin: 10px auto 0;
+    line-height: 32px;
+    text-align: center;
+    color: #444444;
+  margin-top:0;
+  padding-top:5px;
+
+}
+.sidebar-social a{
+  text-decoration:none;
+  width:100%;
+  height:100%;
+  display:block;
+  margin:0;
+  padding:0;
+}
+
+.sidebar-social a span{
+  color:black;
+  font-size:10px;
+  display:block;
+  text-transform:uppercase;
+  font-family:'Josefin Sans';
+  letter-spacing:1px;
+}
+</style>
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Time Table</h1>
+          </div>
+
+          <!-- Content Row -->
+          {% if departments %}
+          {% for department in departments %}
+           <h1>{{ department.department_name }}</h1>
+          <div class="row">
+            <!-- Earnings (Monthly) Card Example -->
+            {% for timeTable in timeTables %}
+              {% if department.id == timeTable.Department_name_id %}
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      <a href="/media/{{ timeTable.Time_Table_of_Division_A }}">
+                         <H5>{{ department.department_name }}  ({{ timeTable.semester }}) </H5> 
+                        </a>
+                      </div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div> -->
+                    </div>
+                    <div class="col-auto sidebar-social">
+                        
+                              <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
+  <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
+  <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">{{ timeTable.semester }}A</strong>
+</span>
+                            
+                    {% if timeTable.Time_Table_of_Division_B != "Null" %}
+                    <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
+                        <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
+                        <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">{{ timeTable.semester }}A</strong>
+                      </span>
+                    {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}    
+          </div>
+          {% endfor %}
+          {% endif %}
+          <!-- Content Row -->
+
+         
+
+          <!-- Content Row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'TimeTable/jquery/jquery.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'TimeTable/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'TimeTable/sb-admin-2.min.js' %}"></script>
+
+
+
+</body>
+
+</html>

@@ -27,7 +27,7 @@ SECRET_KEY = '1_95y_#a7cy92spx)kbgz9(kh1jx5dr@1!4vn&eznjm15=hpp%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'quickReference',
     'syllabus',
+    'TimeTable',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

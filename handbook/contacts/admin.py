@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import contact
+from .models import contact,department
 # admin.site.register(contact)
 class contactAdmin(admin.ModelAdmin):
     list_display = ['Name', 'Department', 'jecc_code']
@@ -12,10 +12,11 @@ class contactAdmin(admin.ModelAdmin):
     search_fields = ('Department', 'Designation', 'Name','Qualification','jecc_code','Phone_Number' )
 admin.site.register(contact, contactAdmin)
 
-# class contactAdmin(admin.ModelAdmin):
-#     def get_queryset(self,request):
-#         queryset = super(contactAdmin ,self).get_queryset(request)
-#         queryset = queryset.order_by('department_Name')
-#         return queryset
-#     search_fields = ('department_Name')
-# admin.site.register(contact, contactAdmin)
+class DepartmentAdmin(admin.ModelAdmin):
+    department_name = [' ', 'department_name']
+    def get_queryset(self,request):
+        queryset = super(DepartmentAdmin ,self).get_queryset(request)
+        queryset = queryset.order_by('department_name')
+        return queryset
+    search_fields = ('department_name','id')
+admin.site.register(department, DepartmentAdmin)
