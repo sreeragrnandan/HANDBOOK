@@ -32,7 +32,6 @@ class EventInfo(models.Model):
     breaking_CHOICES = (
         ('Academic','Academic'),('Non-Academic','Non-Academic'),('Class-Event','Class-Event'),
     )
-
     title = models.CharField(max_length=100,help_text=u"Enter title...")
     date = models.DateField(default=datetime.now) 
     description = models.CharField(max_length=200,help_text=u"Enter description...",blank=True)

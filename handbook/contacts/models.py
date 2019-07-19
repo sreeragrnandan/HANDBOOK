@@ -16,8 +16,6 @@ class contact(models.Model):
     ,('EEE','EEE'),('ME','ME'),('BSH','BSH'),('Office','Office'),('Library','Library'),
     ('COMPUTER CENTER','COMPUTER CENTER'),('HOSTEL','HOSTEL'),
     )
-
-    
     Department = models.CharField(max_length = 80,choices = DEPARTMENT_CHOICES , default='Select department' )
     Name = models.CharField(max_length=80)
     Designation_CHOICES = (

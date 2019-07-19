@@ -47,12 +47,12 @@
     <div id="mySidenav" style="z-index: 1586;" class="sidenav">
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
         
-            <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
-            <a href="{% url 'calender:index' %}" class="activesm"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
-            <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
-            <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
-            <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
-            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+            <a href="{% url 'contacts:index' %}" style="font-weight:normal"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+            <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+            <a href="{% url 'syllabus:index' %}" style="font-weight:normal"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+            <a href="{% url 'comity:index' %}" style="font-weight:normal"><i class="fas fa-users"></i>&nbsp;Committees</a>
+            <a href="{% url 'quickReference:index' %}" style="font-weight:normal;font-size: 23px;"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+            <a href="{% url 'administration:index' %}" style="font-weight:normal"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
             
           
       </div>
@@ -68,13 +68,13 @@
     </ul>
     <ul class="compdisp">
     
-                    <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
-                    <a href="{% url 'calender:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Calender</li></a>
-                    <a href="{% url 'syllabus:index' %}"><li>Syllabus</li></a>
-                    <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                    <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
-                    <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
-                    <a href="{% url 'administration:index' %}"><li>About</li></a> 
+                    <a href="{% url 'contacts:index' %}" style="font-weight: normal"><li>Contacts</li></a>
+                    <a href="{% url 'calender:index' %}"  style="font-weight: normal"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Calender</li></a>
+                    <a href="{% url 'syllabus:index' %}"  style="font-weight:normal"><li>Syllabus</li></a>
+                    <a href="{% url 'comity:index' %}"  style="font-weight:normal"><li>Committees</li></a>
+                    <a href="{% url 'quickReference:index' %}"  style="font-weight:normal"><li>QuickReference</li></a>
+                    <a href="{% url 'administration:index' %}"  style="font-weight:normal"><li>Administration</li></a> 
+                    <a href="{% url 'administration:index' %}"  style="font-weight:normal"><li>About</li></a> 
 
                   </ul>
         </div>
