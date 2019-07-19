@@ -16,6 +16,7 @@ class contact(models.Model):
     ,('EEE','EEE'),('ME','ME'),('BSH','BSH'),('Office','Office'),('Library','Library'),
     ('COMPUTER CENTER','COMPUTER CENTER'),('HOSTEL','HOSTEL'),
     )
+    departments = models.ForeignKey(department, on_delete=models.CASCADE)
     Department = models.CharField(max_length = 80,choices = DEPARTMENT_CHOICES , default='Select department' )
     Name = models.CharField(max_length=80)
     Designation_CHOICES = (
@@ -24,7 +25,7 @@ class contact(models.Model):
         ,('Office Assistant','Office Assistant'),('Accountant','Accountant'),('Office Manager','Office Manager'),('Principal','Principal')
         ,('Secretary to Principal','Secretary to Principal'),('Driver','Driver'),('Manager','Manager'),
         ('Campus Head','Campus Head'),('Asst. Manager','Asst. Manager'),('Administrator','Administrator'),
-        ('System Administrator','System Administrator'),('Manager','Manager'),('Chairman','Chairman'),('Hostel Warden','Hostel Warden'),
+        ('System Administrator','System Administrator'),('Manager','Manager'),('Chairman','Chairman'),('Hostel Warden','Hostel Warden'),('HOD','HOD'),
         ('',''),
     )
     Designation = MultiSelectField(choices = Designation_CHOICES)
