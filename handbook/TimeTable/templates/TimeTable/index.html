@@ -62,8 +62,13 @@
   color:black;
 }
 </style>
+<style>
+    a{
+        text-decoration: none !important;
+    }
+    </style>
 <body id="page-top" style="background-color: #f8f9fc;">
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
         
             <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
@@ -72,9 +77,10 @@
             <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
             <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
             <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
-          
+            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a> 
+            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>     
       </div>
-    <header style="z-index: 1586">
+    <header style="z-index: 1526" >
         <div class="wrap" style="max-width: 1000px;">
             <a href="#hello">
                 <div class="logo"><i class="fas fa-book-open"></i></div>
@@ -84,18 +90,18 @@
             <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
     
             </ul>
-            <ul class="compdisp">
-                              <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
-                              <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
-                              <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
-                              <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                              <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
-                              <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
-                              <a href="{% url 'administration:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Time Table</li></a> 
-                              <a href="{% url 'administration:index' %}"><li>About</li></a> 
-                            </ul>
-                            </div>
-                     </header>
+            <ul class="compdisp  compsidebar">
+                <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
+                <a href="{% url 'TimeTable:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">&nbsp;Time Table</li></a> 
+                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a> 
+            </ul>
+        </div>
+    </header>
   <!-- Page Wrapper -->
   <div id="wrapper" style="padding-top: 70px;padding-top: 70px;position: relative;min-height: 67vh;">
     <!-- Sidebar -->

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'contacts',
     'comity',
     'home',
+    'about',
     'quickReference',
     'syllabus',
     'TimeTable',

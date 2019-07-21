@@ -27,20 +27,21 @@
             #external-frame {min-height:800px;}
       </style>    
 </head>
-        <body>
-            <div id="mySidenav" class="sidenav">
-                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-                
-                    <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
-                    <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
-                    <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
-                    <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
-                    <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
-                    <a href="{% url 'administration:index' %}" class="activesm"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
-                  
-              </div>
-    <header style="margin-bottom: 5rem">
-        <div class="wrap" style="max-width: 800px;">
+<body>
+    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+        
+            <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+            <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+            <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+            <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+            <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a> 
+            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>     
+      </div>
+    <header style="z-index: 1526" >
+        <div class="wrap" style="max-width: 1000px;">
             <a href="#hello">
                 <div class="logo"><i class="fas fa-book-open"></i></div>
             </a>
@@ -49,16 +50,18 @@
             <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
     
             </ul>
-            <ul class="compdisp">
-                              <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
-                              <a href="{% url 'calender:index' %}"><li>Calender</li></a>
-                              <a href="{% url 'syllabus:index' %}"><li>Syllabus</li></a>
-                              <a href="{% url 'comity:index' %}"><li>Committees</li></a>
-                              <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
-                              <a href="{% url 'administration:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Administration</li></a> 
-                            </ul>
-                        </div>
-                 </header>
+            <ul class="compdisp  compsidebar">
+                <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                <a href="{% url 'administration:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Administration</li></a> 
+                <a href="{% url 'TimeTable:index' %}"><li >&nbsp;Time Table</li></a> 
+                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a> 
+            </ul>
+        </div>
+    </header>
               
 
          <!-- template -->

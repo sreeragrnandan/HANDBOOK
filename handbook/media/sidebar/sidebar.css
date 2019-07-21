@@ -53,6 +53,15 @@
       display: none;
     }
   }
+
+  @media screen and (max-width:905px){
+  .compsidebar{
+    display: none !important;
+  }
+  .sidedisp{
+    display: block;
+  }
+  }
   @media screen and (max-width:480px){
     .sidedisp{
       display: block;
