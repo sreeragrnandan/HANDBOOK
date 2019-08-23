@@ -22,9 +22,9 @@ class Event(models.Model):
 class EventInfo(models.Model):
     #create profile_pics dir in the media folder
     SIZES = (
-        {'code': 'gone', 'wxh': '725x573', 'resize': 'crop'},
-        {'code': 'gtwo', 'wxh': '725x274', 'resize': 'crop'}, #'resize': 'scale' :another method
-        {'code': 'normal', 'wxh': '350x238','resize': 'crop'}, 
+        # {'code': 'gone', 'wxh': '725x573', 'resize': 'crop'},
+        # {'code': 'gtwo', 'wxh': '725x274', 'resize': 'crop'}, #'resize': 'scale' :another method
+        {'code': 'normal', 'wxh': '350x238','resize': 'crop'},
         )
     priority_CHOICES = (
        ('Normal','Normal'),('Trending','Trending'),

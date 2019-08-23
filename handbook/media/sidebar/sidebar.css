@@ -1,4 +1,13 @@
-
+header a{
+  text-decoration: none !important;
+  font-weight: 100 !important;
+}
+#team{
+  margin-bottom: 0px !important;
+}
+#footer{
+padding: 0px;
+}
 .sidenav {
   height: 100%;
   width: 0;

@@ -4,12 +4,12 @@ from django.contrib import admin
 from .models import contact,department
 # admin.site.register(contact)
 class contactAdmin(admin.ModelAdmin):
-    list_display = ['Name', 'Department', 'jecc_code']
+    list_display = ['Name', 'departments', 'jecc_code']
     def get_queryset(self,request):
         queryset = super(contactAdmin ,self).get_queryset(request)
-        queryset = queryset.order_by('Department')
+        queryset = queryset.order_by('departments')
         return queryset
-    search_fields = ('Department', 'Designation', 'Name','Qualification','jecc_code','Phone_Number' )
+    search_fields = ('departments', 'Designation', 'Name','Qualification','jecc_code','Phone_Number' )
 admin.site.register(contact, contactAdmin)
 
 class DepartmentAdmin(admin.ModelAdmin):

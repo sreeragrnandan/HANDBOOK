@@ -10,9 +10,8 @@
   <meta name="author" content="">
   
   <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/media/sidebar/sidebar.css">
 
-  <title>Resume - Start Bootstrap Theme</title>
+  <title>Handbook</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'quickReference/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -28,6 +27,8 @@
   <link href="{% static 'quickReference/css/resume.min.css' %}" rel="stylesheet">
   <link href="{% static 'quickReference/css/headerFooter.css' %}" rel="stylesheet">
   <script src="/media/sidebar/sidebar.js"></script>
+  <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+
   <style>
       @media screen and (min-width:1300px){
         .wrap{
@@ -53,6 +54,9 @@
     a{
         text-decoration: none !important;
     }
+    .compdisp li{
+    font-weight: 300 !important;
+  }
     </style>
    
 </head>
@@ -76,11 +80,12 @@
                 <div class="logo"><i class="fas fa-book-open"></i></div>
             </a>
             <ul class="sidedisp">
-            <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
-            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+            <span style="font-size:30px;cursor:pointer;transition: 1s;color: black;" id="open" onclick="openNav()">&#9776;</span>
+            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;color: black" id="close" onclick="closeNav()">&times;</span>
     
             </ul>
             <ul class="compdisp  compsidebar">
+
                 <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
                 <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
                 <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
@@ -101,8 +106,9 @@
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'quickReference/img/jyo.png' %}" alt="">
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-chevron-down"></i>
+    <button class="navbar-toggler" type="button" onclick="changeClass(this)" id="1" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-chevron-down" id="down" style="transition: 0.4s"></i>
+        <i class="fas fa-chevron-up" id="up" style="font-size:0px;transition: 0.4s"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
@@ -115,7 +121,7 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#generals">General Information to Students</a>0
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
         </li>
         <li class="nav-item">
@@ -123,7 +129,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
@@ -271,7 +277,7 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="generals">
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="generals" style="margin-bottom: 50px;">
       <div class="w-100">
         <h2 class="mb-5">General Information to Students</h2>
 
@@ -288,7 +294,7 @@
         </div>
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
+          <div class="resume-content" style="margin: 50px">
             <h3 class="mb-0">Discipline, Conduct and Behavior!</h3>
             <p> <ol>
                 <li>All students are expected to wear the college uniform in the campus. </li> 
@@ -373,12 +379,12 @@
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
-            <h3 class="mb-0">Web Design Intern</h3>
+            <!-- <h3 class="mb-0">Web Design Intern</h3> -->
             <div class="subheading mb-3">Shout! Media Productions</div>
-            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+            <!-- <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p> -->
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">September 2008 - June 2010</span>
+            <!-- <span class="text-primary">September 2008 - June 2010</span> -->
           </div>
         </div>
 
@@ -388,7 +394,7 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
       <div class="w-100">
         <h2 class="mb-5">Skills</h2>
 
@@ -448,22 +454,22 @@
             Agile Development &amp; Scrum</li>
         </ul>
       </div>
-    </section>
+    </section> -->
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
       <div class="w-100">
         <h2 class="mb-5">Interests</h2>
         <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
         <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
       </div>
-    </section>
+    </section> -->
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
-      <div class="w-100">
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards"> -->
+      <!-- <div class="w-100">
         <h2 class="mb-5">Awards &amp; Certifications</h2>
         <ul class="fa-ul mb-0">
           <li>
@@ -493,8 +499,8 @@
             3<sup>rd</sup>
             Place - James Buchanan High School - Hackathon 2005</li>
         </ul>
-      </div>
-    </section>
+      </div> -->
+    <!-- </section> -->
 
   </div>
   <section id="footer">
@@ -510,6 +516,22 @@
       <br>2019</p>
   </section>
 </div>
+<script>
+function changeClass(obj) {
+  var cls;
+  cls = obj.id;
+  if (obj.id == "1") {
+  document.getElementById("down").style.fontSize="0px";
+  document.getElementById("up").style.fontSize="20px";
+  document.getElementById(cls).id="2";
+  } else {
+    
+  document.getElementById("up").style.fontSize="0px";
+  document.getElementById("down").style.fontSize="20px";
+  document.getElementById(cls).id="1";
+  }
+}
+</script>
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'quickReference/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'quickReference/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>

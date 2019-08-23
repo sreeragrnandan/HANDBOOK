@@ -11,13 +11,7 @@ class department(models.Model):
 
 class contact(models.Model):
     
-    DEPARTMENT_CHOICES = (
-    ('CSE','CSE'),('ECE','ECE'),('Administration','Administration'),('CIVIL','CIVIL')
-    ,('EEE','EEE'),('ME','ME'),('BSH','BSH'),('Office','Office'),('Library','Library'),
-    ('COMPUTER CENTER','COMPUTER CENTER'),('HOSTEL','HOSTEL'),
-    )
     departments = models.ForeignKey(department, on_delete=models.CASCADE)
-    Department = models.CharField(max_length = 80,choices = DEPARTMENT_CHOICES , default='Select department' )
     Name = models.CharField(max_length=80)
     Designation_CHOICES = (
         ('Assistant Professor','Assistant Professor'),('Associate Professor','Associate Professor'),('Bus Codinator','Bus Codinator')
@@ -34,4 +28,4 @@ class contact(models.Model):
     Phone_Number = models.CharField(max_length=20,unique=True)
     jecc_code = models.CharField(max_length = 100, default='JEC')
     def __str__(self):  
-        return ' ' + self.Name + ' ' +self.Department+ ' '+ self.jecc_code
+        return ' ' + self.Name + ' '+ self.jecc_code
