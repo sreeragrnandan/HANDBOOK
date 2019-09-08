@@ -14,14 +14,15 @@
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
   <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
-    <script src="/media/sidebar/sidebar.js"></script>
+
   <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="{% static 'TimeTable/sb-admin-2.min.css' %}" rel="stylesheet">
   <link href="{% static 'TimeTable/style.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
 
 </head>
 <style>
@@ -70,25 +71,28 @@
 <body id="page-top" style="background-color: #f8f9fc;">
     <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-        
+
             <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
             <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
-            <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+            <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
             <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
             <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
-            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
-            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a> 
-            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>     
+            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
       </div>
     <header style="z-index: 1526" >
         <div class="wrap" style="max-width: 1000px;">
             <a href="#hello">
-                <div class="logo"><i class="fas fa-book-open"></i></div>
+                <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
             </a>
             <ul class="sidedisp">
-            <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
-            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
-    
+            <span style="font-size:30px;cursor:pointer;transition: 1s;color:black" id="open" onclick="openNav()">&#9776;</span>
+            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;color:black" id="close" onclick="closeNav()">&times;</span>
+
             </ul>
             <ul class="compdisp  compsidebar">
                 <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
@@ -96,9 +100,9 @@
                 <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
                 <a href="{% url 'comity:index' %}"><li>Committees</li></a>
                 <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
-                <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
-                <a href="{% url 'TimeTable:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">&nbsp;Time Table</li></a> 
-                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a> 
+                <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+                <a href="{% url 'TimeTable:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">&nbsp;Time Table</li></a>
+                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a>
             </ul>
         </div>
     </header>
@@ -128,7 +132,7 @@
           </select>
         </div>
         <div class="clo-md-6" style="margin-left: 20px">
-          <select class="form-control" onclick="selFunction()" id="sell2"  disabled>
+          <select class="form-control" onclick="selFunction()" id="sell2">
               <option value="None">Select Sem</option>
               <option value="S1">S1</option>
               <option value="S2">S2</option>
@@ -155,19 +159,19 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                         <H5>{{ department.department_name }}  ({{ timeTable.semester }}) </H5> 
+                         <H5>{{ department.department_name }}  ({{ timeTable.semester }}) </H5>
                       </div>
                       <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div> -->
                     </div>
                     <div class="col-auto sidebar-social">
-                      <a href="/media/{{ timeTable.Time_Table_of_Division_A }}">                        
+                      <a href="/media/{{ timeTable.Time_Table_of_Division_A }}">
                       <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
                       <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
                       <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">{{ timeTable.semester }}A</strong>
                       </span>
-       </a>             
+       </a>
             {% if timeTable.Time_Table_of_Division_B != "Null" %}
-            <a href="/media/{{ timeTable.Time_Table_of_Division_B }}">                                    
+            <a href="/media/{{ timeTable.Time_Table_of_Division_B }}">
             <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
                 <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
                 <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">
@@ -181,13 +185,13 @@
               </div>
             </div>
             {% endif %}
-            {% endfor %}    
+            {% endfor %}
           </div>
           {% endfor %}
           {% endif %}
           <!-- Content Row -->
 
-         
+
 
           <!-- Content Row -->
 
@@ -227,9 +231,6 @@
   <script type="text/javascript">
     function selFunction() {
       var sellval = document.getElementById("sell").value;
-      if (sellval != "") {
-      document.getElementById("sell2").disabled = false;
-      }
 
       var sellval2 = document.getElementById("sell2").value;
 
@@ -241,7 +242,7 @@
         //  alert(search_id);
         searchDiv(search_id,sellval)
        }
-      // alert(sellval)        
+      // alert(sellval)
       }
     }
   </script>
@@ -249,14 +250,12 @@
     function searchDiv(divId,head) {
       var x = document.getElementsByClassName("InSearch");
       for (i = 0; i < x.length; i++) {
-        a = x[i].getElementsByTagName("div")[1];      
+        a = x[i].getElementsByTagName("div")[1];
         x[i].style.display = "none";
       }
       document.getElementById(divId).style.display="block";
       document.getElementById(head).style.display="block";
     }
   </script>
-
 </body>
-
 </html>
