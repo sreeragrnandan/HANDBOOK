@@ -23,11 +23,20 @@ padding: 0px;
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #f1f1f1;
-  display: block;
-  transition: 0.3s;
+  text-decoration: none !important;
+  font-size: 25px  !important;
+  color: #f1f1f1 !important;
+  display: block  !important;
+  transition: 0.3s  !important;
+}
+
+.sidenav a:hover {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none !important;
+  font-size: 25px  !important;
+  color: #f1f1f1 !important;
+  display: block  !important;
+  transition: 0.3s  !important;
 }
 
 .activesm{

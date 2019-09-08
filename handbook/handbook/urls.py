@@ -30,7 +30,7 @@ urlpatterns = [
     path('index/', include('index.url')),
     path('contacts/', include('contacts.url')),
     path('calender/', include('calender.url')),
-    path('comity/', include('comity.url')),
+    path('Committees/', include('comity.url')),
     path('qr/', include('quickReference.url')),
     path('syllabus/', include('syllabus.url')),
 

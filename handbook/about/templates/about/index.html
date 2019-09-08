@@ -10,7 +10,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>About</title>
-
+  
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
   <!-- Bootstrap core CSS -->
   <link href="{% static 'about/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -57,7 +58,10 @@
   <div id="header" style="z-index: 1589">
     <div class="wrap" style="max-width: 1000px;">
       <a href="#hello">
-          <div class="logo"><i class="fas fa-book-open"></i></div>
+          <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
       </a>
       <ul class="sidedisp mob">
       <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
@@ -109,7 +113,7 @@
           <ul class="timeline">
             <li>
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/1.jpg' %}" alt="">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth1.jpg' %}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -126,7 +130,7 @@
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/2.jpg' %}" alt="">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth2.jpg' %}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -143,7 +147,7 @@
             </li>
             <li>
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/3.jpg' %}" alt="">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth3.jpg' %}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -159,7 +163,7 @@
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/4.jpg' %}" alt="">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth4.jpg' %}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
