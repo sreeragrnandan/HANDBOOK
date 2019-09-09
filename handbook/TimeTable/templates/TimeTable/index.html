@@ -2,7 +2,7 @@
 <html lang="en">
     {% load static %}
 <head>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -123,7 +123,7 @@
           <div class="row">
             <div class="clo-md-6">
           <select class="form-control" onclick="selFunction()" id="sell">
-            <option value="">Select Branch</option>
+            <option value="None">Select Branch</option>
               {% if departments %}
               {% for department in departments %}
             <option value="{{ department.department_name }}">{{ department.department_name }}</option>
@@ -228,24 +228,24 @@
         </footer> -->
         <!-- End of Footer -->
 
+
   <script type="text/javascript">
     function selFunction() {
       var sellval = document.getElementById("sell").value;
-
       var sellval2 = document.getElementById("sell2").value;
-
       if (sellval != "" && sellval2 != "None") {
       var sellval = document.getElementById("sell").value;
       var sellval2 = document.getElementById("sell2").value;
        if (sellval2 != "None") {
          var search_id = sellval+sellval2;
         //  alert(search_id);
-        searchDiv(search_id,sellval)
+        searchDiv(search_id,sellval);
        }
       // alert(sellval)
       }
     }
   </script>
+
   <script>
     function searchDiv(divId,head) {
       var x = document.getElementsByClassName("InSearch");
@@ -255,6 +255,7 @@
       }
       document.getElementById(divId).style.display="block";
       document.getElementById(head).style.display="block";
+      selFunction();
     }
   </script>
 </body>
