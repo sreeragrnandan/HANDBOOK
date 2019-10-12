@@ -19,22 +19,26 @@
 </head>
 <body>
         <style>
-                .h4, h4 {
-        font-size: 1.2rem;
-    }    
-    hr{
-height: 1px;
-color: white;
-background-color:white;
-border: none;
-}
+            .h4, h4 {
+            font-size: 1.2rem;
+            }    
+            hr{
+            height: 1px;
+            color: white;
+            background-color:white;
+            border: none;
+            }
+        .sidenav a{
+            text-decoration: none;
+            color:white !important;
+        }
                 </style>
         <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
                 <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
                 
                     <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
                     <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
-                    <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+                    <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
                     <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
                     <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
                     <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
@@ -69,7 +73,9 @@ border: none;
     <!-- Team -->
 <style>
 
-@media screen and (min-width:1200px){
+
+
+@media screen and (min-width:1410px){
     #myComm{
       width: 200px !important;
     }
@@ -90,8 +96,8 @@ border: none;
    
 </style>
 
-    <div style="cursor: pointer;top:400px;position: fixed;margin-left: 10px"  onclick="openComm()">
-        <i class="fas fa-chevron-right fa-3x"></i>
+    <div  style="cursor: pointer;top:250px;color: #66dcec;position: fixed;margin-left: 10px;"  onclick="openComm()">
+        <i class="fas fa-align-left fa-2x"></i>
     </div>
 
     <div class="hidden" onclick="closeNav(); closeComm();" >

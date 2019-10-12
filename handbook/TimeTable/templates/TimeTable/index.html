@@ -2,7 +2,34 @@
 <html lang="en">
     {% load static %}
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function selFunction() {
+      var sellval = document.getElementById("sell").value;
+      var sellval2 = document.getElementById("sell2").value;
+      if (sellval != "" && sellval2 != "None") {
+      var sellval = document.getElementById("sell").value;
+      var sellval2 = document.getElementById("sell2").value;
+       if (sellval2 != "None") {
+         var search_id = sellval+sellval2;
+        //  alert(search_id);
+        searchDiv(search_id,sellval);
+       }
+      // alert(sellval)
+      }
+    }
+  </script>
+  <script>
+    function searchDiv(divId,head) {
+      var x = document.getElementsByClassName("InSearch");
+      for (i = 0; i < x.length; i++) {
+        a = x[i].getElementsByTagName("div")[1];
+        x[i].style.display = "none";
+      }
+      document.getElementById(divId).style.display="block";
+      document.getElementById(head).style.display="block";
+
+    }
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,14 +89,20 @@
 .sidebar-social a span{
   color:black;
 }
-</style>
-<style>
+.footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding-top: 1rem;
+    }
     a{
         text-decoration: none !important;
     }
-    </style>
-<body id="page-top" style="background-color: #f8f9fc;">
-    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+</style>
+<body style="background-color: #f8f9fc">
+  
+    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 10">
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 
             <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
@@ -81,7 +114,7 @@
             <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
             <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
       </div>
-    <header style="z-index: 1526" >
+    <header style="z-index: 20" >
         <div class="wrap" style="max-width: 1000px;">
             <a href="#hello">
                 <div class="logo" style="padding: 0px">
@@ -92,7 +125,6 @@
             <ul class="sidedisp">
             <span style="font-size:30px;cursor:pointer;transition: 1s;color:black" id="open" onclick="openNav()">&#9776;</span>
             <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;color:black" id="close" onclick="closeNav()">&times;</span>
-
             </ul>
             <ul class="compdisp  compsidebar">
                 <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
@@ -106,8 +138,9 @@
             </ul>
         </div>
     </header>
+  <section id="team"style="border-bottom:none;" onclick="closeNav()" class="pb-5">
   <!-- Page Wrapper -->
-  <div id="wrapper" style="padding-top: 70px;padding-top: 70px;position: relative;min-height: 67vh;">
+  <div id="wrapper">
     <!-- Sidebar -->
     <!-- End of Sidebar -->
     <!-- Content Wrapper -->
@@ -132,7 +165,7 @@
           </select>
         </div>
         <div class="clo-md-6" style="margin-left: 20px">
-          <select class="form-control" onclick="selFunction()" id="sell2">
+          <select class="form-control" onchange="selFunction();" id="sell2">
               <option value="None">Select Sem</option>
               <option value="S1">S1</option>
               <option value="S2">S2</option>
@@ -189,74 +222,21 @@
           </div>
           {% endfor %}
           {% endif %}
-          <!-- Content Row -->
-
-
-
-          <!-- Content Row -->
-
-
         </div>
-        <!-- /.container-fluid -->
-
       </div>
-      <!-- End of Main Content -->
     </div>
-    <!-- End of Content Wrapper -->
-
   </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <section id="footer">
-      <div id="logo_footer">
-        <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
-      </div>
-      <p>Digital Handbook<br>Developed by TBI<br>2019</p>
-    </section>
+</section>
+<div class="footer">
+    <section id="footer">
+          <div id="logo_footer">
+            <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+          </div>
+          <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+        </section>
+  </div>
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-      <!-- Footer -->
-      <!-- <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
-            </div>
-          </div>
-        </footer> -->
-        <!-- End of Footer -->
-
-
-  <script type="text/javascript">
-    function selFunction() {
-      var sellval = document.getElementById("sell").value;
-      var sellval2 = document.getElementById("sell2").value;
-      if (sellval != "" && sellval2 != "None") {
-      var sellval = document.getElementById("sell").value;
-      var sellval2 = document.getElementById("sell2").value;
-       if (sellval2 != "None") {
-         var search_id = sellval+sellval2;
-        //  alert(search_id);
-        searchDiv(search_id,sellval);
-       }
-      // alert(sellval)
-      }
-    }
-  </script>
-
-  <script>
-    function searchDiv(divId,head) {
-      var x = document.getElementsByClassName("InSearch");
-      for (i = 0; i < x.length; i++) {
-        a = x[i].getElementsByTagName("div")[1];
-        x[i].style.display = "none";
-      }
-      document.getElementById(divId).style.display="block";
-      document.getElementById(head).style.display="block";
-      selFunction();
-    }
-  </script>
 </body>
 </html>
