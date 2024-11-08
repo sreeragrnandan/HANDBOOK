@@ -1,6 +1,6 @@
 
 # HANDBOOK
 
-View demo at <a href="https://github.com/sreeragrnandan/HANDBOOK" target="_blank"> https://srn.pythonanywhere.com/</a>
+View demo at [https://sreeragrnandan.pythonanywhere.com/](https://sreeragrnandan.pythonanywhere.com/)
 <br />
 <img src ="handbook.png" alt="">
